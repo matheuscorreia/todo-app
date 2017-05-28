@@ -1,8 +1,14 @@
 <template>
-  <div id="app-wrapper">
-    <main-pane v-bind:goals='goals'/>
-    <secondary-pane v-bind:goals='goals'/>
-  </div>
+    <div class="row">
+      <main-pane
+        v-bind:goals='goals'
+        v-bind:updateList='updateList'
+      />
+      <secondary-pane
+        v-bind:goals='goals'
+        v-bind:updateList='updateList'
+      />
+    </div>
 </template>
 
 <script>
@@ -24,17 +30,23 @@ export default {
     }
   },
   beforeMount: function () {
-    let db = new PouchDB('goals');
-    let that = this;
-
-    db.allDocs({include_docs: true}, function (err, response) {
-      that.goals = response.rows.map(function (item) {
-        return item.doc;
+    this.updateList();
+  },
+  methods: {
+    updateList() {
+      let db = new PouchDB('goals');
+      db.allDocs({include_docs: true}, (err, response) => {
+        this.goals = response.rows.map(function (item) {
+          return item.doc;
+        });
       });
-    });
+    }
   }
 }
 </script>
 
-<style scoped>
+<style>
+.row{
+  margin: 0;
+}
 </style>

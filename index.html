@@ -2,11 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Goalify</title>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="src/vendor/css/materialize.min.css">
+    <style>
+      @font-face {
+        font-family: "Roboto Thin";
+        src: url("src/assets/Roboto-Thin.ttf");
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script src="/dist/build.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/pouchdb/6.2.0/pouchdb.min.js"></script>
     <script>
       window.PouchDB = PouchDB;
