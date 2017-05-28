@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "electron": "^1.6.10",
     "jquery": "^3.2.1",
     "pouchdb": "^6.2.0",
     "vue": "^2.3.3"

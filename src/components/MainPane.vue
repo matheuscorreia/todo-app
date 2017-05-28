@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import PouchDB from 'pouchdb';
 import GoalCard from './GoalCard.vue';
 
 export default {
